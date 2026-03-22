@@ -1,407 +1,494 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYSTEM 22: Elite Protocol</title>
-    
-    <!-- React & ReactDOM -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    
-    <!-- Babel for JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Config for Custom Colors -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'void-black': '#050505',
-                        'cold-blue': '#0ea5e9',
-                        'ice-white': '#e2e8f0',
-                        'danger-red': '#ef4444',
-                        'system-gray': '#1e293b',
-                    },
-                    fontFamily: {
-                        mono: ['"Courier New"', 'Courier', 'monospace'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <title>🇧🇾 Belarusian CE English · new trial test 2026 (spec based)</title>
     <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
         body {
-            background-color: #020617;
-            color: #e2e8f0;
-            font-family: 'Courier New', Courier, monospace;
+            background: #f2f5f9;
+            margin: 20px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
         }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #334155; 
-        }
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(30, 41, 59, 0.8);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-        .glow-text {
-            text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
-        }
-        .crt-line {
+        .test-wrapper {
+            max-width: 1000px;
             width: 100%;
-            height: 2px;
-            background: rgba(14, 165, 233, 0.1);
-            position: fixed;
-            animation: scanline 5s linear infinite;
-            pointer-events: none;
-            z-index: 50;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 30px 25px;
         }
-        @keyframes scanline {
-            0% { top: -10%; }
-            100% { top: 110%; }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #1a2b4c;
+            border-left: 8px solid #c0392b;
+            padding-left: 20px;
+        }
+        .badge {
+            background: #eef2f6;
+            color: #2c3e50;
+            padding: 6px 15px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+        section {
+            margin-bottom: 40px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e6edf4;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #1e3c5c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2 span {
+            background: #c0392b;
+            color: white;
+            font-size: 1rem;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+        .text-block {
+            background: #f8fafd;
+            padding: 16px 20px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c0392b;
+            font-style: normal;
+            line-height: 1.5;
+        }
+        .question-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .q-item {
+            background: #f9fcff;
+            border-radius: 20px;
+            padding: 16px 20px;
+            border: 1px solid #dde5ed;
+            transition: 0.1s;
+        }
+        .q-item.correct {
+            background: #e6f7e6;
+            border-color: #2e7d32;
+        }
+        .q-item.wrong {
+            background: #ffefed;
+            border-color: #c0392b;
+        }
+        .q-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0b2a41;
+            font-size: 1.05rem;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 30px;
+            align-items: center;
+        }
+        .options label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            padding: 8px 14px;
+            border: 2px solid #cbd6e3;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            width: 200px;
+            max-width: 100%;
+            background: white;
+        }
+        input[type="text"]:focus {
+            border-color: #c0392b;
+            outline: none;
+        }
+        .inline-text {
+            display: inline-block;
+            margin: 0 5px;
+        }
+        .line-input {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .line-label {
+            font-family: 'Courier New', monospace;
+            background: #ecf0f3;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
+        .small-hint {
+            font-size: 0.8rem;
+            color: #4d6278;
+            margin-top: 5px;
+        }
+        button {
+            background: #c0392b;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 8px 14px rgba(192,57,43,0.3);
+            transition: 0.2s;
+            margin: 30px 0 15px;
+            width: 100%;
+        }
+        button:hover {
+            background: #a32f21;
+            transform: scale(1.01);
+        }
+        .score-board {
+            background: #1e3c5c;
+            color: white;
+            font-size: 2rem;
+            padding: 20px;
+            border-radius: 40px;
+            text-align: center;
+            margin: 30px 0 10px;
+        }
+        .expl-box {
+            background: #fff9e0;
+            border-radius: 18px;
+            padding: 16px 22px;
+            border-left: 8px solid #f39c12;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+        .expl-box strong {
+            color: #b85e00;
+        }
+        hr {
+            border: 1px solid #e0e9f2;
+            margin: 25px 0;
+        }
+        .reading-text {
+            background: #eef3f9;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
         }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+<div class="test-wrapper">
+    <h1>BELARUSIAN CENTRALISED EXAM 2026 ·01 </h1>
+    <div class="badge">English · 40 tasks · fully renewed according to ministry specs - Tarek Amer School</div>
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+    <section>
+        <h2><span>PART A</span> Reading & multiple choice</h2>
+        <div id="partA" class="question-grid"></div>
+    </section>
 
-        const AudioEngine = () => {
-            const [isPlaying, setIsPlaying] = useState(false);
-            const audioCtxRef = useRef(null);
-            const nodeRef = useRef(null);
+    <div id="dynamicTest"></div>  <!-- part B injected -->
 
-            const toggleNoise = () => {
-                if (isPlaying) {
-                    audioCtxRef.current.close();
-                    setIsPlaying(false);
-                } else {
-                    const AudioContext = window.AudioContext || window.webkitAudioContext;
-                    const ctx = new AudioContext();
-                    audioCtxRef.current = ctx;
+    <button id="submitBtn">✅ SUBMIT & CHECK ANSWERS</button>
+    <div id="scoreDisplay" class="score-board">— / 40</div>
+    <div id="explanations" class="expl-box">💡 After submission, explanations appear here.</div>
+</div>
 
-                    const bufferSize = 4096;
-                    const brownNoise = (function() {
-                        var lastOut = 0;
-                        var node = ctx.createScriptProcessor(bufferSize, 1, 1);
-                        node.onaudioprocess = function(e) {
-                            var output = e.outputBuffer.getChannelData(0);
-                            for (var i = 0; i < bufferSize; i++) {
-                                var white = Math.random() * 2 - 1;
-                                output[i] = (lastOut + (0.02 * white)) / 1.02;
-                                lastOut = output[i];
-                                output[i] *= 3.5;
-                            }
-                        }
-                        return node;
-                    })();
-
-                    brownNoise.connect(ctx.destination);
-                    nodeRef.current = brownNoise;
-                    setIsPlaying(true);
-                }
-            };
-
-            return { isPlaying, toggleNoise };
+<script>
+    (function() {
+        // ---------- NEW ANSWER KEY (fully changed) ----------
+        const correct = {
+            // A part
+            A1: '1', A2: '1', A3: '1', A4: '1',      // Amina text
+            A5: '4',                                   // neither
+            A6: '3',                                   // a, an
+            A7: '1',                                   // have you
+            A8: '1',                                   // Despite
+            A9: '2',                                   // connected
+            A10: '3',                                  // look
+            A11: '2',                                  // carried
+            A12: '3',                                  // chance
+            A13: '1',                                  // Don't worry
+            A14: '1',                                  // Yes, please do
+            A15: '2', A16: '2', A17: '1', A18: '3',    // Elena the photographer
+            // B part
+            B1: 'to', B2: 'to', B3: 'with',
+            B4: 'fewer',      // (fewer than 50 students)
+            B5: 'is',
+            B6: 'how',
+            B7: 'sense',
+            B8: 'break',
+            B9: 'himself', B10: 'can', B11: 'hardly', B12: 'to', B13: 'that',
+            B14: 'few', B15: 'have', B16: 'to', B17: 'does', B18: 'astronauts',
+            B19: 'discoveries', B20: 'relatively', B21: 'difficulties', B22: 'enables'
         };
 
-        const System22 = () => {
-            const [view, setView] = useState('dashboard');
-            const [streak, setStreak] = useState(0);
-            const [lastCheckIn, setLastCheckIn] = useState(null);
-            const [patterns, setPatterns] = useState([]);
-            const [timer, setTimer] = useState(0);
-            const [isTimerRunning, setIsTimerRunning] = useState(false);
-            const { isPlaying: isNoiseOn, toggleNoise } = AudioEngine();
-
-            useEffect(() => {
-                const savedStreak = localStorage.getItem('s22_streak');
-                const savedLastCheckIn = localStorage.getItem('s22_lastCheck');
-                const savedPatterns = localStorage.getItem('s22_patterns');
-
-                if (savedStreak) setStreak(parseInt(savedStreak));
-                if (savedLastCheckIn) setLastCheckIn(savedLastCheckIn);
-                if (savedPatterns) setPatterns(JSON.parse(savedPatterns));
-            }, []);
-
-            useEffect(() => {
-                localStorage.setItem('s22_patterns', JSON.stringify(patterns));
-            }, [patterns]);
-
-            useEffect(() => {
-                let interval = null;
-                if (isTimerRunning && timer > 0) {
-                    interval = setInterval(() => {
-                        setTimer(timer - 1);
-                    }, 1000);
-                } else if (timer === 0 && isTimerRunning) {
-                    setIsTimerRunning(false);
-                    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-system-check-963.mp3');
-                    audio.play().catch(e => console.log("Audio play failed"));
-                }
-                return () => clearInterval(interval);
-            }, [isTimerRunning, timer]);
-
-            const handleCheckIn = (success) => {
-                const today = new Date().toDateString();
-                if (lastCheckIn === today) return;
-
-                if (success) {
-                    const newStreak = streak + 1;
-                    setStreak(newStreak);
-                    localStorage.setItem('s22_streak', newStreak);
-                } else {
-                    setStreak(0);
-                    localStorage.setItem('s22_streak', 0);
-                }
-                setLastCheckIn(today);
-                localStorage.setItem('s22_lastCheck', today);
-            };
-
-            const addLog = (text, type) => {
-                const newPattern = {
-                    id: Date.now(),
-                    date: new Date().toLocaleString('ar-MA'),
-                    text: text,
-                    type: type
-                };
-                setPatterns([newPattern, ...patterns]);
-            };
-
-            const startTimer = (minutes) => {
-                setTimer(minutes * 60);
-                setIsTimerRunning(true);
-            };
-
-            const formatTime = (seconds) => {
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-            };
-
-            const Dashboard = () => (
-                <div className="space-y-6 animate-fade-in">
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="glass-panel p-4 rounded-sm border-l-4 border-cold-blue">
-                            <h3 className="text-xs text-gray-400 uppercase tracking-widest">Protocol 22 Status</h3>
-                            <div className="mt-2 flex items-baseline gap-2">
-                                <span className="text-4xl font-mono font-bold text-cold-blue glow-text">{streak}</span>
-                                <span className="text-sm text-gray-500">/ 22 DAYS</span>
-                            </div>
-                            <div className="w-full bg-system-gray h-1 mt-2">
-                                <div className="bg-cold-blue h-1 transition-all duration-500" style={{ width: `${Math.min((streak / 22) * 100, 100)}%` }}></div>
-                            </div>
-                        </div>
-                        <div className="glass-panel p-4 rounded-sm border-r-4 border-white">
-                             <h3 className="text-xs text-gray-400 uppercase tracking-widest">Identity Level</h3>
-                             <div className="mt-2 text-xl font-bold">
-                                {streak < 7 ? "PROJECT: ZOMBIE" : streak < 21 ? "PROJECT: AWAKENING" : "ELITE: SOVEREIGN"}
-                             </div>
-                             <p className="text-xs text-gray-500 mt-1">
-                                {streak < 7 ? "المراقب يحاول السيطرة..." : "السيستم يعمل بكفاءة."}
-                             </p>
-                        </div>
-                    </div>
-
-                    <div className="glass-panel p-6 rounded-sm">
-                        <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-cold-blue rounded-full animate-pulse"></span>
-                            تقرير الصباح (Morning Report)
-                        </h2>
-                        {lastCheckIn === new Date().toDateString() ? (
-                            <div className="text-center py-4 text-green-500 border border-green-900/30 bg-green-900/10 rounded">
-                                تم تسجيل البيانات لهذا اليوم. انتظر الغد.
-                            </div>
-                        ) : (
-                            <div className="space-y-4">
-                                <p className="text-sm text-gray-400">هل استيقظت قبل 05:05؟ هل الهاتف بقي خارج الغرفة؟</p>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <button 
-                                        onClick={() => handleCheckIn(true)}
-                                        className="py-3 border border-cold-blue text-cold-blue hover:bg-cold-blue hover:text-black transition-colors font-bold"
-                                    >
-                                        نعم (تأكيد السيطرة)
-                                    </button>
-                                    <button 
-                                        onClick={() => {
-                                            handleCheckIn(false);
-                                            addLog("فشل بروتوكول الصباح. تم تصفير العداد.", "failure");
-                                        }}
-                                        className="py-3 border border-danger-red text-danger-red hover:bg-danger-red hover:text-white transition-colors font-bold"
-                                    >
-                                        لا (إعادة ضبط)
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            );
-
-            const DeepWork = () => (
-                <div className="flex flex-col items-center justify-center h-full space-y-8 animate-fade-in">
-                    <div className="text-center space-y-2">
-                        <h2 className="text-2xl font-bold tracking-widest text-cold-blue glow-text">DEEP WORK CHAMBER</h2>
-                        <p className="text-xs text-gray-500">العزلة هي بوابة العظمة</p>
-                    </div>
-
-                    <div className="text-8xl font-mono font-bold tracking-tighter text-white tabular-nums">
-                        {formatTime(timer)}
-                    </div>
-
-                    {!isTimerRunning ? (
-                        <div className="flex gap-4">
-                            <button onClick={() => startTimer(25)} className="px-6 py-2 border border-gray-600 hover:border-white transition-all">25m</button>
-                            <button onClick={() => startTimer(50)} className="px-6 py-2 border border-gray-600 hover:border-white transition-all">50m</button>
-                            <button onClick={() => startTimer(90)} className="px-6 py-2 border border-gray-600 hover:border-white transition-all">90m</button>
-                        </div>
-                    ) : (
-                        <div className="text-center animate-pulse-slow text-danger-red">
-                            <p>لا يوجد زر إيقاف.</p>
-                            <p className="text-xs mt-2">إما أن تنهي الوقت، أو تغلق الصفحة وتعلن الهزيمة.</p>
-                        </div>
-                    )}
-
-                    <button 
-                        onClick={toggleNoise}
-                        className={`mt-8 px-8 py-4 border rounded-sm transition-all flex items-center gap-3 ${isNoiseOn ? 'bg-cold-blue text-black border-cold-blue' : 'border-gray-600 text-gray-400 hover:text-white'}`}
-                    >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        {isNoiseOn ? "BROWN NOISE ACTIVE" : "ACTIVATE NOISE SHIELD"}
-                    </button>
-                </div>
-            );
-
-            const Logs = () => {
-                const [input, setInput] = useState("");
-
-                const handleSubmit = (e) => {
-                    e.preventDefault();
-                    if (!input.trim()) return;
-                    addLog(input, "intel");
-                    setInput("");
-                };
-
-                return (
-                    <div className="h-full flex flex-col space-y-4 animate-fade-in">
-                        <div className="glass-panel p-4 rounded-sm">
-                            <h2 className="text-lg font-bold mb-2">الصندوق الأسود (Pattern Recognition)</h2>
-                            <p className="text-xs text-gray-400 mb-4">سجل الملاحظات، الدوافع، ولحظات الضعف. حول الألم إلى بيانات.</p>
-                            <form onSubmit={handleSubmit} className="flex gap-2">
-                                <input 
-                                    type="text" 
-                                    value={input}
-                                    onChange={(e) => setInput(e.target.value)}
-                                    placeholder="اكتب الملاحظة هنا..."
-                                    className="flex-1 bg-black/50 border border-gray-700 p-2 text-sm focus:border-cold-blue outline-none text-white"
-                                />
-                                <button type="submit" className="bg-white/10 px-4 py-2 hover:bg-cold-blue hover:text-black transition-colors">تسجيل</button>
-                            </form>
-                        </div>
-
-                        <div className="flex-1 overflow-y-auto space-y-2 pr-2">
-                            {patterns.length === 0 && <p className="text-center text-gray-600 mt-10">لا توجد بيانات (No Data).</p>}
-                            {patterns.map(p => (
-                                <div key={p.id} className={`p-3 border-l-2 text-sm font-mono ${p.type === 'failure' ? 'border-danger-red bg-red-900/10' : 'border-cold-blue bg-blue-900/5'}`}>
-                                    <div className="text-xs text-gray-500 mb-1">{p.date}</div>
-                                    <div className="text-gray-300">{p.text}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                );
-            };
-
-            const Protocol = () => (
-                <div className="glass-panel p-6 rounded-sm h-full overflow-y-auto animate-fade-in text-justify">
-                    <h2 className="text-2xl font-bold text-cold-blue mb-6 border-b border-gray-800 pb-2">THE ELITE MANIFESTO</h2>
-                    <div className="space-y-6 text-sm leading-relaxed text-gray-300 font-mono">
-                        <p><strong className="text-white">1. السيادة المطلقة:</strong> أنا لست جسدي. أنا المراقب. الجسد آلة بيولوجية تحتاج للترويض، وليس للتفاوض.</p>
-                        <p><strong className="text-white">2. التنفيذ البارد:</strong> الشعور لا يهم. الرغبة لا تهم. الفعل هو الحقيقة الوحيدة. افعل ما يجب فعله بغض النظر عن الطقس الداخلي.</p>
-                        <p><strong className="text-white">3. الموت أو التطور:</strong> العودة لمنطقة الراحة ليست خياراً، بل انتحاراً. السفن أُحرقت.</p>
-                        <p><strong className="text-white">4. قانون الصمت:</strong> الحديث يضيع الطاقة. الصمت يبني الضغط. استخدم الضغط كوقود.</p>
-                        <p><strong className="text-white">5. 05:00 صباحاً:</strong> هذا هو الوقت الذي يُقسم فيه العالم إلى أسياد وعبيد. كن مستيقظاً حين ينامون.</p>
-                        <div className="mt-8 pt-4 border-t border-gray-800 text-center text-xs text-gray-500">
-                            SYSTEM V1.0 // DESIGNED FOR THE GRAND LAB RAT
-                        </div>
-                    </div>
-                </div>
-            );
-
-            return (
-                <div className="min-h-screen flex flex-col max-w-md mx-auto relative overflow-hidden">
-                    <div className="crt-line"></div>
-                    
-                    <header className="p-4 flex justify-between items-center border-b border-gray-800 bg-black/50 backdrop-blur-md z-10 sticky top-0">
-                        <h1 className="text-cold-blue font-bold tracking-wider text-sm">SYSTEM <span className="text-white">22</span></h1>
-                        <div className="flex gap-2 text-xs font-mono">
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                            ONLINE
-                        </div>
-                    </header>
-
-                    <main className="flex-1 p-4 overflow-hidden relative z-0">
-                        {view === 'dashboard' && <Dashboard />}
-                        {view === 'deepwork' && <DeepWork />}
-                        {view === 'logs' && <Logs />}
-                        {view === 'protocol' && <Protocol />}
-                    </main>
-
-                    <nav className="border-t border-gray-800 bg-black p-2 z-10">
-                        <div className="grid grid-cols-4 gap-1">
-                            <button 
-                                onClick={() => setView('dashboard')}
-                                className={`p-3 text-xs font-bold uppercase tracking-wide transition-all ${view === 'dashboard' ? 'bg-cold-blue text-black' : 'hover:bg-gray-900 text-gray-500'}`}
-                            >
-                                Status
-                            </button>
-                            <button 
-                                onClick={() => setView('deepwork')}
-                                className={`p-3 text-xs font-bold uppercase tracking-wide transition-all ${view === 'deepwork' ? 'bg-cold-blue text-black' : 'hover:bg-gray-900 text-gray-500'}`}
-                            >
-                                Focus
-                            </button>
-                            <button 
-                                onClick={() => setView('logs')}
-                                className={`p-3 text-xs font-bold uppercase tracking-wide transition-all ${view === 'logs' ? 'bg-cold-blue text-black' : 'hover:bg-gray-900 text-gray-500'}`}
-                            >
-                                Data
-                            </button>
-                            <button 
-                                onClick={() => setView('protocol')}
-                                className={`p-3 text-xs font-bold uppercase tracking-wide transition-all ${view === 'protocol' ? 'bg-cold-blue text-black' : 'hover:bg-gray-900 text-gray-500'}`}
-                            >
-                                Rules
-                            </button>
-                        </div>
-                    </nav>
-                </div>
-            );
+        // ---------- NEW EXPLANATIONS (bilingual) ----------
+        const explanations = {
+            A1: "🟢 Present Simple (doesn't use) – habitual action / привычное действие (она не использует софт).",
+            A2: "🟢 Past Simple active (developed) – завершённое действие в прошлом (развила навык в детстве).",
+            A3: "🟢 Present Simple passive (are constructed) – страдательный залог, настоящее (здания строятся).",
+            A4: "🟢 Future (will inspire) – будущее простое, надежда на вдохновение.",
+            A5: "🟢 neither (of them) – отрицание для двух лиц (два друга не пришли вовремя).",
+            A6: "🟢 a university (звук [j]) / an astronaut (гласный) → a, an.",
+            A7: "🟢 Tag question: ‘never’ = отрицание, поэтому утвердительный хвост ‘have you’?",
+            A8: "🟢 Despite + noun phrase (несмотря на плохую погоду).",
+            A9: "🟢 connected with (связанные с индустрией моды) – причастие с предлогом.",
+            A10: "🟢 look back (оглядываться на прошлое) – фразовый глагол.",
+            A11: "🟢 carried (аксессуары, которые носили с собой) – past participle.",
+            A12: "🟢 every chance (есть все шансы) – устойчивое выражение.",
+            A13: "🟢 Don't worry – подходит как успокаивающий ответ на забытый зарядник.",
+            A14: "🟢 Yes, please do – вежливое согласие на предложение открыть окно.",
+            A15: "🟢 Elena prefers film because it forces her to be more intentional (ответ 2).",
+            A16: "🟢 В университете она изучала биологию и偶尔 брала камеру (ответ 2).",
+            A17: "🟢 Успех пришёл, когда журнал купил её фото снежных барсов (ответ 1).",
+            A18: "🟢 Смысл работы в том, чтобы помочь защитить животных (ответ 3).",
+            B1: "🟢 contributes to (вносить вклад в) – предлог to.",
+            B2: "🟢 thanks to (благодаря) – предлог to.",
+            B3: "🟢 provide with (обеспечивать чем-либо) – предлог with.",
+            B4: "🟢 fewer than (для исчисляемых: students) – меньше чем.",
+            B5: "🟢 information – неисчисляемое, ед.ч.: is.",
+            B6: "🟢 no matter how (как бы ни) – how + прилагательное/наречие.",
+            B7: "🟢 common sense / make sense – одно слово ‘sense’.",
+            B8: "🟢 break a record / take a break – подходит ‘break’.",
+            B9: "🟢 Лишнее ‘himself’: ‘to Mars himself’ – himself не нужен.",
+            B10: "🟢 Лишнее ‘can’: после will face инфинитив без can.",
+            B11: "🟢 Лишнее ‘hardly’: нужно наречие hard (усердно), hardly = едва.",
+            B12: "🟢 Лишнее ‘to’: must be overcome (без to).",
+            B13: "🟢 Лишнее ‘that’: require careful planning (прямое дополнение).",
+            B14: "🟢 Лишнее ‘few’: time неисчисл. → little time или просто time.",
+            B15: "🟢 Лишнее ‘have’: once astronauts arrive (present simple после once).",
+            B16: "🟢 Лишнее ‘to’: may not provide (инфинитив без to после модального).",
+            B17: "🟢 Лишнее ‘does’: it is certainly worth (does не нужно).",
+            B18: "🟢 Лишнее ‘astronauts’: каждый астронавт – each astronaut.",
+            B19: "🟢 discoveries (мн.ч. от discovery) – одно из важнейших открытий.",
+            B20: "🟢 relatively (наречие) – относительно простая среда.",
+            B21: "🟢 difficulties (трудности, мн.ч.) – significant difficulties.",
+            B22: "🟢 enables (глагол, 3 лицо) – позволяет мыслить нестандартно."
         };
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<System22 />);
-    </script>
+        // ---------- RENDER PART A (full new content) ----------
+        function renderPartA() {
+            let aDiv = document.getElementById('partA');
+            let aHtml = '';
+
+            // A1-A4 : Amina text
+            aHtml += `<div class="text-block">Meet Amina, a young architect from Morocco. She designs sustainable buildings. Unlike many architects, she (A1) ... computer software; she prefers hand-drawn sketches. She (A2) ... this skill during her childhood, watching her grandfather draw. Her buildings (A3) ... from local materials. In the future, her work (A4) ... hopefully inspire a new generation of eco-architects.</div>`;
+            const a1_4 = [
+                { q: 'A1. Amina ... computer software for her designs.', options: ['1) doesn\'t use', '2) isn\'t using', '3) hasn\'t used', '4) didn\'t use', '5) won\'t use'] },
+                { q: 'A2. She ... this skill during her childhood.', options: ['1) developed', '2) was developed', '3) has developed', '4) had developed', '5) develops'] },
+                { q: 'A3. Her buildings ... from local materials.', options: ['1) are constructed', '2) were constructed', '3) have been constructed', '4) construct', '5) constructed'] },
+                { q: 'A4. In the future, her work ... hopefully inspire many.', options: ['1) will', '2) would', '3) is going to', '4) may', '5) –'] } // simplified: will inspire
+            ];
+            a1_4.forEach((item, idx) => {
+                let qnum = `A${idx+1}`;
+                aHtml += `<div class="q-item" id="q-${qnum}"><div class="q-title">${item.q}</div><div class="options">`;
+                item.options.forEach((opt, i) => {
+                    let val = (i+1).toString();
+                    aHtml += `<label><input type="radio" name="${qnum}" value="${val}"> ${opt}</label>`;
+                });
+                aHtml += '</div></div>';
+            });
+
+            // A5-A8
+            const a5_8 = [
+                { q: 'A5. Two friends were supposed to help, but ... of them arrived on time.', options: ['1) any','2) both','3) none','4) neither','5) either'] },
+                { q: 'A6. My brother is ... university student, and he dreams of becoming ... astronaut.', options: ['1) a, a','2) an, an','3) a, an','4) an, a','5) the, a'] },
+                { q: 'A7. You’ve never been to London, ... ?', options: ['1) have you','2) haven\'t you','3) do you','4) don\'t you','5) are you'] },
+                { q: 'A8. ... the bad weather, the outdoor concert was a success.', options: ['1) Despite','2) Although','3) In spite of','4) Because of','5) Due to'] }
+            ];
+            a5_8.forEach(item => {
+                let qnum = item.q.split('.')[0];
+                aHtml += `<div class="q-item" id="q-${qnum}"><div class="q-title">${item.q}</div><div class="options">`;
+                item.options.forEach((opt, i) => {
+                    let val = (i+1).toString();
+                    aHtml += `<label><input type="radio" name="${qnum}" value="${val}"> ${opt}</label>`;
+                });
+                aHtml += '</div></div>';
+            });
+
+            // A9-A12 fashion/accessories text
+            aHtml += `<div class="text-block">Even experts (A9) ... in the fashion industry often (A10) ... to vintage styles. They draw inspiration from accessories (A11) ... by celebrities in the 1990s. There is every (A12) ... that these trends will dominate next season.</div>`;
+            const a9_12 = [
+                { q: 'A9.', options: ['1) involved','2) connected','3) focused','4) related','5) engaged'] },
+                { q: 'A10.', options: ['1) see','2) watch','3) look','4) consider','5) notice'] },
+                { q: 'A11.', options: ['1) dressed','2) carried','3) approached','4) worn','5) appeared'] },
+                { q: 'A12.', options: ['1) danger','2) risk','3) chance','4) option','5) luck'] }
+            ];
+            a9_12.forEach(item => {
+                let qnum = item.q.replace('.','');
+                aHtml += `<div class="q-item" id="q-${qnum}"><div class="q-title">${item.q}</div><div class="options">`;
+                item.options.forEach((opt, i) => {
+                    let val = (i+1).toString();
+                    aHtml += `<label><input type="radio" name="${qnum}" value="${val}"> ${opt}</label>`;
+                });
+                aHtml += '</div></div>';
+            });
+
+            // A13 dialogue
+            aHtml += `<div class="q-item" id="q-A13"><div class="q-title">A13. X: Oh no, I forgot my phone charger. Y: ______. You can use mine.</div><div class="options">`;
+            ['1) Don\'t worry','2) What a pity','3) I\'m sorry to hear that','4) Never mind','5) No way'].forEach((opt,i)=>{
+                let val = (i+1).toString();
+                aHtml += `<label><input type="radio" name="A13" value="${val}"> ${opt}</label>`;
+            });
+            aHtml += '</div></div>';
+
+            // A14 dialogue
+            aHtml += `<div class="q-item" id="q-A14"><div class="q-title">A14. X: Shall I open the window? Y: ______. It’s a bit stuffy.</div><div class="options">`;
+            ['1) Yes, please do.','2) No, thanks.','3) I\'d rather you didn\'t.','4) If you want.','5) That\'s all right.'].forEach((opt,i)=>{
+                let val = (i+1).toString();
+                aHtml += `<label><input type="radio" name="A14" value="${val}"> ${opt}</label>`;
+            });
+            aHtml += '</div></div>';
+
+            // A15-A18 reading : Elena the photographer
+            aHtml += `<div class="reading-text"><strong>Elena Vasiliev, wildlife photographer, discusses her project in Siberia.</strong> (1) Unlike many photographers who use digital, Elena prefers film. She says the process forces her to be more intentional. (2) She didn't plan to become a photographer; she studied biology at university. But she always carried a camera on field trips. (3) After graduating, she worked as a research assistant, but spent free time photographing animals. Her big break came when a magazine bought her photos of snow leopards. (4) Now she hopes her photos will raise awareness about endangered species. She says the most rewarding part is knowing her work might help protect these animals.</div>`;
+            const a15_18 = [
+                { q: 'A15. What does Elena say about her photography method?', options: ['1) She uses the latest digital equipment.','2) She finds film photography makes her think more.','3) She only photographs snow leopards.','4) She learned photography at university.'] },
+                { q: 'A16. What did Elena do at university?', options: ['1) She studied photography.','2) She studied biology and took photos occasionally.','3) She spent all her time on research.','4) She sold photos to magazines.'] },
+                { q: 'A17. How did Elena become successful?', options: ['1) A magazine published her snow leopard photos.','2) She got a job as a research assistant.','3) She won a photography contest.','4) Her professor recommended her work.'] },
+                { q: 'A18. Why does Elena find her work meaningful?', options: ['1) It allows her to travel to Siberia.','2) She enjoys using film cameras.','3) It may contribute to animal conservation.','4) She earns a lot of money.'] }
+            ];
+            a15_18.forEach(item => {
+                let qnum = item.q.split('.')[0];
+                aHtml += `<div class="q-item" id="q-${qnum}"><div class="q-title">${item.q}</div><div class="options">`;
+                item.options.forEach((opt, i) => {
+                    let val = (i+1).toString();
+                    aHtml += `<label><input type="radio" name="${qnum}" value="${val}"> ${opt}</label>`;
+                });
+                aHtml += '</div></div>';
+            });
+
+            aDiv.innerHTML = aHtml;
+        }
+        renderPartA();
+
+        // ---------- RENDER PART B (completely new) ----------
+        let container = document.getElementById('dynamicTest');
+        let bHtml = '<section><h2><span>PART B</span> Word building, prepositions, extra words</h2>';
+
+        // B1-B3 text
+        bHtml += `<div class="text-block">Learning a new language contributes (B1) ____ personal growth. Thanks (B2) ____ apps, it's easier than ever. These tools provide you (B3) ____ interactive exercises.</div>`;
+        for(let i=1; i<=3; i++) {
+            bHtml += `<div class="q-item" id="q-B${i}"><div class="q-title">B${i} <input type="text" id="B${i}" placeholder="your answer" size="12"></div></div>`;
+        }
+
+        // B4-B6 one word
+        bHtml += `<div class="q-item" id="q-B4"><div class="q-title">B4. I paid ... than twenty dollars for this shirt. <input type="text" id="B4" placeholder="word" size="12"></div></div>`;
+        bHtml += `<div class="q-item" id="q-B5"><div class="q-title">B5. The information ... reliable, according to experts. <input type="text" id="B5" placeholder="word" size="12"></div></div>`;
+        bHtml += `<div class="q-item" id="q-B6"><div class="q-title">B6. No matter ... hard he tries, he can't solve the puzzle. <input type="text" id="B6" placeholder="word" size="12"></div></div>`;
+
+        // B7-B8 double sentences
+        bHtml += `<div class="q-item" id="q-B7"><div class="q-title">B7. rely on your common ... / It doesn't make ... <input type="text" id="B7" placeholder="one word" size="15"></div>`;
+        bHtml += `<div class="small-hint">↳ It's important to use common ... / doesn't make ... to buy expensive car.</div></div>`;
+        bHtml += `<div class="q-item" id="q-B8"><div class="q-title">B8. hopes to ... a record / take a ... <input type="text" id="B8" placeholder="one word" size="15"></div>`;
+        bHtml += `<div class="small-hint">↳ athlete hopes to ... a record / time to take a ...</div></div>`;
+
+        // B9-B18 extra word lines (space exploration)
+        const lines = [
+            "B9. Many astronomers dream of travel to Mars himself one day, but the journey is risky.",
+            "B10. The first astronauts will face can many challenges, including radiation and isolation.",
+            "B11. Scientists are working hardly to develop technology that can support long missions.",
+            "B12. There are lots of obstacles that must be to overcome before humans can go.",
+            "B13. A mission to Mars will require that careful planning and international cooperation.",
+            "B14. Few time is available for mistakes when you are millions of miles from Earth.",
+            "B15. Once astronauts have arrive on Mars, they will need to build shelters.",
+            "B16. The planet's thin atmosphere may to not provide enough protection from solar winds.",
+            "B17. Despite these difficulties, it is certainly does worth pursuing such ambitious goals.",
+            "B18. Each astronauts who volunteer for this mission will be a pioneer."
+        ];
+        lines.forEach((line, idx) => {
+            let num = idx+9;
+            bHtml += `<div class="q-item" id="q-B${num}" style="display:flex; flex-wrap:wrap; align-items:center; gap:10px;"><span class="line-label">B${num}</span> <span style="font-family:monospace; background:#f4f6f9; padding:6px; border-radius:12px;">${line}</span> <input type="text" id="B${num}" placeholder="extra word" size="12"></div>`;
+        });
+
+        // B19-B22 word formation
+        bHtml += `<div class="text-block">I've studied creativity for years. One of the most important (B19) ... (DISCOVER) is that constraints can boost creativity. A (B20) ... (RELATIVE) simple environment often leads to innovative ideas. Many artists have overcome significant (B21) ... (DIFFICULT) to produce masterpieces. This (B22) ... (ABLE) them to think outside the box.</div>`;
+        for(let i=19; i<=22; i++) {
+            bHtml += `<div class="q-item" id="q-B${i}"><div class="q-title">B${i} <input type="text" id="B${i}" placeholder="answer" size="15"></div></div>`;
+        }
+
+        bHtml += '</section>';
+        container.innerHTML = bHtml;
+
+        // ---------- SUBMIT & CHECK ----------
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            let total = 40;
+            let score = 0;
+            let resultDetails = [];
+
+            function getAnswer(qId) {
+                if (qId.startsWith('A')) {
+                    let radios = document.getElementsByName(qId);
+                    for (let r of radios) if (r.checked) return r.value;
+                    return '';
+                } else {
+                    let inp = document.getElementById(qId);
+                    return inp ? inp.value.trim().toLowerCase() : '';
+                }
+            }
+
+            for (let q in correct) {
+                let userAns = getAnswer(q);
+                let correctAns = correct[q].toLowerCase();
+                let isCorrect = (userAns === correctAns);
+                if (isCorrect) score++;
+
+                let qDiv = document.getElementById(`q-${q}`);
+                if (qDiv) {
+                    qDiv.classList.remove('correct','wrong');
+                    qDiv.classList.add(isCorrect ? 'correct' : 'wrong');
+                } else {
+                    let inp = document.getElementById(q);
+                    if(inp) {
+                        inp.style.borderColor = isCorrect ? '#2e7d32' : '#c0392b';
+                        inp.style.backgroundColor = isCorrect ? '#e6f7e6' : '#ffefed';
+                    }
+                }
+
+                if (!isCorrect) {
+                    resultDetails.push({ q, correct: correct[q], explanation: explanations[q] || '—' });
+                }
+            }
+
+            document.getElementById('scoreDisplay').innerText = `${score} / 40`;
+            let explDiv = document.getElementById('explanations');
+            if (resultDetails.length === 0) {
+                explDiv.innerHTML = '✅ Perfect! Все верно. All answers correct.';
+            } else {
+                let htmlExpl = '<strong>❌ Mistakes / Ошибки:</strong><br><ul>';
+                resultDetails.forEach(r => {
+                    htmlExpl += `<li><b>${r.q}</b> → correct: ${r.correct} <br> ${r.explanation}</li>`;
+                });
+                htmlExpl += '</ul>';
+                explDiv.innerHTML = htmlExpl;
+            }
+        });
+    })();
+</script>
 </body>
 </html>
