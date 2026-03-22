@@ -17,4 +17,7 @@
     <!-- ألوان النص -->
     <color name="gray_800">#1F2937</color>
     <color name="gray_600">#4B5563</color>
+    <?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="indigo_700">#1e3a8a</color>
 </resources>
